@@ -5,6 +5,3 @@
 // app/assets/config/manifest.js
 //= link popper.js
 //= link bootstrap.min.jsgaa .
-gst
-gcmsg "Job done"
-gp origin master   
