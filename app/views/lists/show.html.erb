@@ -2,7 +2,7 @@
 <h1><%= @list.name %>  </h1>
 <br>
 
-<%= @list.photo.attached? ? cl_image_tag( @list.photo.key, height: 300, width: 400, crop: :fill) : ""%>
+<%= @list.photo.attached? ? cl_image_tag( "#{list.photo.key}.jpg", height: 300, width: 400, crop: :fill) : ""%>
 <% if @bookmarks.count > 0 %>
 <h2> Ma sélection (<%= @bookmarks.count %>) </h2>
 <ul>
