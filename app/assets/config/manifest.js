@@ -4,4 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 // app/assets/config/manifest.js
 //= link popper.js
-//= link bootstrap.min.jsgaa .
+//= link bootstrap.min.js

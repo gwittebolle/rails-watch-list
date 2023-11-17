@@ -1,0 +1,6 @@
+  <%= render partial: "layouts/banner" %>
+  <% @lists.each do |list| %>
+    <h3><%= link_to list.name, list_path(list)%></h3>
+    <%= link_to 'Delete a list', list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <br>
+  <% end %>

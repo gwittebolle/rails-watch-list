@@ -1,0 +1,17 @@
+<h1>New bookmark</h1>
+
+<h2> Available movies</h2>
+<% @movies.each do |movie| %>
+  <%=movie.title%>
+<% end %>
+
+
+
+<br>
+<br>
+
+<%= simple_form_for [@movie, @list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie, :collection => @movies, include_blank:  false, include_hidden: true %>
+  <%= f.submit "Add a bookmark", class: "btn btn-primary" %>
+<% end %>
