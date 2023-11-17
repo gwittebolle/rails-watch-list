@@ -1,6 +1,14 @@
-  <%= render partial: "layouts/banner" %>
-  <% @lists.each do |list| %>
-    <h3><%= link_to list.name, list_path(list)%></h3>
-    <%= link_to 'Delete a list', list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    <br>
-  <% end %>
+<%= render partial: "layouts/banner" %>
+
+<div class="container p-3 m-3 border bg-light  mx-auto">
+
+<h3>Mes sélections</h3>
+
+<div class="container">
+  <div class="row justify-content-between ">
+      <% @lists.each do |list| %>
+          <%= render partial: "pages/card_list", locals: {list: list} %>
+      <% end %>
+</div>
+</div>
+</div>

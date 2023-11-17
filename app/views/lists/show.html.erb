@@ -1,17 +1,26 @@
+<div class="container p-3 m-3 bg-light border">
 <h1><%= @list.name %>  </h1>
 <br>
 
-<h2> Ma sélection </h2>
+<%= @list.photo.attached? ? cl_image_tag( @list.photo.key, height: 300, width: 400, crop: :fill) : ""%>
+<% if @bookmarks.count > 0 %>
+<h2> Ma sélection (<%= @bookmarks.count %>) </h2>
 <ul>
-<% @bookmarks.each do |bookmark| %>
-  <br>
-  <li><%=bookmark.comment%></li>
-  <li><%=bookmark.movie.title%></li>
-  <li><%=bookmark.list.name%></li>
-  <%= link_to 'Supprimer un film', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <br>
-<% end %>
+  <% @bookmarks.each do |bookmark| %>
+    <br>
+    <ul class="list-inline">
+    <li class="list-inline-item"><%=bookmark.comment%></li>
+    <li class="list-inline-item"><%=bookmark.movie.title%></li>
+    <li class="list-inline-item"><%=bookmark.list.name%></li>
+    </ul>
+    <%= link_to 'Supprimer de la sélection', bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <br>
+  <% end %>
 </ul>
+<% else %>
+<h2> Aucun film ajouté pour le moment </h2>
+<% end %>
 
 
-<%= link_to 'Ajouter un film', new_list_bookmark_path(@list, @bookmark) %>
+<%= link_to 'Ajouter un film', new_list_bookmark_path(@list, @bookmark), class: "btn btn-primary" %>
+</div>

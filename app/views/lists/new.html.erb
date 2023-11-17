@@ -1,6 +1,8 @@
-<h1>New list</h1>
+<div class="container p-3 m-3 bg-light border">
+<h2>Nouvelle sélection</h2>
 <%= simple_form_for [@list] do |f| %>
   <%= f.input :name %>
-
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Add a list", class: "btn btn-primary" %>
 <% end %>
+</div>
